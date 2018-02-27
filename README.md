@@ -2,7 +2,7 @@
 
 This is a tutorial that walks you through writing a complete, production-ready
 implementation of a real programming language in 17,000 lines of C. You will be
-re-writing the [Lua](http://www.lua.org/) source code step-by-step, and by the
+re-writing the [Lua source code](https://www.lua.org/source/5.3/) step-by-step, and by the
 end you will have a thorough understanding of every detail of every line of
 code of the Lua implementation.
 
@@ -13,10 +13,10 @@ maybe when part of it is ready for consumption.
 
 ## What you will implement
 
-Everything that's inside
-[lua-5.3.4.tar.gz](http://www.lua.org/ftp/lua-5.3.4.tar.gz), you will write by
-hand. This includes:
+Embeddable Lua library and interpreter, defined by
+[Reference Manual](https://www.lua.org/manual/5.3/manual.html). This includes:
 
+* Lua code examples (for testing)
 * Parser/lexer (handwritten, not generated)
 * Virtual machine
 * Code generator (compiling to bytecode)
@@ -59,32 +59,30 @@ Here are the main steps I plan to take in developing this tutorial:
    higher level concepts (like explaining garbage collection in general and
    then giving an overview of how Lua's GC algorithm works).
 
-I'm well into step 2, and am starting work on step 3.
+_I'm well into step 2, and am starting work on step 3._
 
-Update: I'm skipping step 3, it's not worth it. I'm diving right in to step 4.
-See `MACROSTEPS.md`.
+Update: _I'm skipping step 3, it's not worth it. I'm diving right in to step 4.
+See `MACROSTEPS.md`._
 
 ### Possible orders
 
+* Topic based: Jump around to different parts of the codebase early and often,
+  to keep it interesting and to help with holding the entire codebase
+  in your head. Like a TV show that jumps to many different story arcs
+  each episode, making just a bit of progress on each one.
+  * I really like the idea of this but will have to figure out if it would
+  actually work in practice
 * Classic: repl -> lexing -> parsing -> evaluating expressions -> ...
   * Not good because Lua does parsing/compiling in one single, tightly-written
     step. Also this is how every other programming language implementation book
     does it, it's getting old.
+* Stages: Implement a single component of Lua as the first stage, test it,
+  then add more components (like parser, code generator, VM, GC) in next stages.
+  * Each stage should produce meaningful results and be fruitful
 * Augmenting C: tvalue -> stack -> c api -> hash tables -> GC -> ...
   * Starts by adding duck-typing features to C, then gets right into the lua
     API and then goes into actual interesting language features like hash
     tables and GC, with no need for boring parsing
-* Stages: Implement a super simple version of Lua as the first stage, then add
-  more advanced features (like closures, metatables) in the second stage, and
-  then add optimizations and better algorithms (like incremental GC) in the
-  third stage.
-* "Topic after topic after topic": Jump around to different parts of the
-   codebase early and often, to keep it interesting and to help with holding
-   the entire codebase in your head. Like a TV show that jumps to many
-   different story arcs each episode, making just a bit of progress on each
-   one.
-   * I really like the idea of this but will have to figure out if it would
-     actually work in practice...
 * Historical: Implement things in the order they were actually implemented in
   Lua over the years.
   * Let's not do that, okay? ("Chapter 105: Adding `true` and `false` to our
@@ -93,13 +91,13 @@ See `MACROSTEPS.md`.
     JSON), so for the parser we could start by parsing literal values/tables
     before going on to parse executable code.
 
-I think the "Augmenting C" order will be used for the beginning, and then
+_I think the "Augmenting C" order will be used for the beginning, and then
 we'll try to keep it interesting by doing the "topic after topic" thing. Some
 features might use the "Stages" idea, where a basic version will be
 implemented in say the first half of the book, then the more advanced version
 will come much later. So there, it'll be a combination of the above ordering
 ideas. (Even the "Classic" order will probably make an appearance... it just
-won't be anywhere near the beginning of the book.)
+won't be anywhere near the beginning of the book.)_
 
 ### Ideas
 
