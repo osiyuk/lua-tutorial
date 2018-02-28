@@ -1,15 +1,11 @@
 # Lua From Scratch
 
-This is a tutorial that walks you through writing a complete, production-ready
-implementation of a real programming language in 17,000 lines of C. You will be
-re-writing the [Lua source code](https://www.lua.org/source/5.3/) step-by-step, and by the
-end you will have a thorough understanding of every detail of every line of
-code of the Lua implementation.
+This is a tutorial that walks through writing a complete, production-ready
+implementation of a real programming language in 17,000 lines of C. By the end
+you will have a thorough understanding of every detail of the Lua implementation.
 
-The tutorial isn't done yet. It's actually still in the planning stages. It
-will probably take a long time to get done. You can
-[sign up here](http://eepurl.com/cIOGCD) to be notified when it's done, or
-maybe when part of it is ready for consumption.
+The tutorial isn't done yet. You can [sign up](http://eepurl.com/cIOGCD) to be notified
+when it's done, or maybe when part of it is ready for consumption.
 
 ## What you will implement
 
@@ -43,11 +39,11 @@ Embeddable Lua library and interpreter, defined by
 
 ## The Plan
 
-Here are the main steps I plan to take in developing this tutorial:
+Here are steps to take in developing this tutorial:
 
-1. Get familiar with Lua. ([lua.org/docs.html](http://www.lua.org/docs.html) has lots of good stuff, make sure to read the papers!)
-2. Get familiar with the Lua source code.
-   ([Mike Pall wrote a nice guide](https://www.reddit.com/r/programming/comments/63hth/ask_reddit_which_oss_codebases_out_there_are_so/c02pxbp/))
+1. Get familiar with [Lua docs](https://www.lua.org/docs.html). (make sure to read papers!)
+2. Get familiar with the [Lua source code](https://www.lua.org/source/5.3/). (Mike Pall wrote
+   a [nice guide](https://www.reddit.com/r/programming/comments/63hth/ask_reddit_which_oss_codebases_out_there_are_so/c02pxbp/))
 3. Annotate the Lua source code, in great detail.
 4. Decide on a general order in which to implement everything in Lua.
 5. Split the Lua source code into a series of 20 to 70 "macro-steps", where
